@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://4mhx6vqt0ts6"]
+
+[ext_resource type="Script" path="res://Apple/Apple.gd" id="1_ni50i"]
+[ext_resource type="Texture2D" uid="uid://c3fea83vlacyu" path="res://Assets/tile_0037.png" id="2_ho2vc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wddet"]
+size = Vector2(16, 16)
+
+[node name="Apple" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_ni50i")
+
+[node name="AppleSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ho2vc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wddet")
+
+[node name="PickUpBoundary" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpBoundary"]
+shape = SubResource("RectangleShape2D_wddet")

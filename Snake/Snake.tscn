@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfgqykq4htfow"]
+
+[ext_resource type="Script" path="res://Snake/Snake.gd" id="1_b5kh1"]
+[ext_resource type="Texture2D" uid="uid://dslguoynosttf" path="res://Assets/tile_0015.png" id="2_bvct8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhb7"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f71im"]
+size = Vector2(16, 16)
+
+[node name="Snake" type="StaticBody2D" groups=["SnakeHead"]]
+collision_layer = 3
+script = ExtResource("1_b5kh1")
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("2_bvct8")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3mhb7")
+
+[node name="PickUp" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
+visible = false
+shape = SubResource("RectangleShape2D_f71im")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d05plorm4l2i3"]
+
+[ext_resource type="Script" path="res://Snake/SnakeTail.gd" id="1_8a4if"]
+[ext_resource type="Texture2D" uid="uid://c3fea83vlacyu" path="res://Assets/tile_0037.png" id="2_cxtsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpq3d"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijfas"]
+size = Vector2(16, 16)
+
+[node name="SnakeTail" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource("1_8a4if")
+
+[node name="TailSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_cxtsc")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rpq3d")
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource("RectangleShape2D_ijfas")

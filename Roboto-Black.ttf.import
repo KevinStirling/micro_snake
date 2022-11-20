@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ccp61bp7gjbcp"
+uid="uid://b6ns0jvlvnwgo"
 path="res://.godot/imported/Roboto-Black.ttf-541eabd3e9d800c1669fad7cf4f796fe.fontdata"
 
 [deps]
@@ -26,7 +26,11 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=false
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration"
+}]
 language_support={}
 script_support={}
 opentype_features={}

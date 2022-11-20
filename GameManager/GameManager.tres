@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://b767mxhauo0ur"]
 
-[ext_resource type="FontFile" uid="uid://ccp61bp7gjbcp" path="res://Roboto-Black.ttf" id="1_tsngr"]
+[ext_resource type="FontFile" uid="uid://b6ns0jvlvnwgo" path="res://Roboto-Black.ttf" id="1_tsngr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfso"]
 
@@ -18,4 +18,5 @@ Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_tsngr")
 Label/styles/normal = SubResource("StyleBoxEmpty_cjfso")
 RichTextLabel/font_sizes/bold_font_size = 36
-RichTextLabel/fonts/bold_font = ExtResource("1_tsngr")
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("1_tsngr")

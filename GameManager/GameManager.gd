@@ -6,6 +6,7 @@ extends Node2D
 @onready var snake_segment = preload("res://Snake/SnakeTail.tscn");
 @onready var apple = preload("res://Apple/Apple.tscn");
 @onready var score_label = $ScoreLabel
+@onready var state_display = $StateDisplay
 
 var snake
 var playarea_coords 
@@ -31,7 +32,6 @@ func _ready():
 	playarea_coords = playarea_coords.sort()
 	min_nav_x_y = playarea_coords[0]
 	max_nav_x_y = playarea_coords[playarea_coords.size() - 1]
-	
 	timer.timeout.connect(_timer_timeout)
 	snake = snake_head.instantiate()
 	for s in range(snake.grid_coords.size()):
@@ -45,6 +45,17 @@ func _ready():
 	score = 0
 	score_label.text = str(score)
 	
+func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		if current_state == GlobalVars.State.PAUSE:
+			state_display.visible = false
+			set_state(GlobalVars.State.PLAY)
+		elif current_state == GlobalVars.State.PLAY:
+			set_state(GlobalVars.State.PAUSE)
+			state_display.text = "[center]PAUSED[/center]"
+			state_display.visible = true
+
+
 func update_snake(grid_coords_pos = snake.grid_coords.size() - 1):
 	var current_segment = snake_segment.instantiate()
 	add_child(current_segment)
@@ -62,6 +73,8 @@ func _timer_timeout():
 		if s == 0:
 			if !is_in_boundaries(snake.grid_coords[s]):
 				set_state(GlobalVars.State.DEAD)
+				state_display.text = "[center]DEAD[/center]"
+				state_display.visible = true
 			segment_next = snake.grid_coords[s]
 			snake.grid_coords[s] = snake.grid_coords[s] + snake.input_buffer
 			snake.position = grid.map_to_local(snake.grid_coords[s])
@@ -75,8 +88,8 @@ func _timer_timeout():
 		timer.start()
 
 func is_in_boundaries(grid_coord):
-	if (min_nav_x_y.x <= grid_coord.x) and (max_nav_x_y.x >= grid_coord.x):
-		if (min_nav_x_y.y <= grid_coord.y) and (max_nav_x_y.y >= grid_coord.y):
+	if (min_nav_x_y.x < grid_coord.x) and (max_nav_x_y.x > grid_coord.x):
+		if (min_nav_x_y.y < grid_coord.y) and (max_nav_x_y.y > grid_coord.y):
 			return true
 	return false
 	

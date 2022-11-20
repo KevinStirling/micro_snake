@@ -9,3 +9,5 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("SnakeHead"):
 		manager.set_state(GlobalVars.State.DEAD)
+		manager.state_display.text = "[center]DEAD[/center]"
+		manager.state_display.visible = true

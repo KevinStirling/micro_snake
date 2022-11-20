@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dslguoynosttf" path="res://Assets/tile_0015.png" id="2_bvct8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mhb7"]
-size = Vector2(16, 16)
+size = Vector2(15, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f71im"]
-size = Vector2(16, 16)
+size = Vector2(15, 15)
 
 [node name="Snake" type="StaticBody2D" groups=["SnakeHead"]]
 collision_layer = 3
@@ -22,5 +22,4 @@ shape = SubResource("RectangleShape2D_3mhb7")
 [node name="PickUp" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
-visible = false
 shape = SubResource("RectangleShape2D_f71im")

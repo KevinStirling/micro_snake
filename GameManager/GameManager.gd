@@ -5,12 +5,15 @@ extends Node2D
 @onready var snake_head = preload("res://Snake/Snake.tscn");
 @onready var snake_segment = preload("res://Snake/SnakeTail.tscn");
 @onready var apple = preload("res://Apple/Apple.tscn");
+@onready var score_label = $ScoreLabel
 
 var snake
-var bg_layer_coords 
+var playarea_coords 
 var min_nav_x_y : Vector2
 var max_nav_x_y : Vector2
 var current_state := GlobalVars.State.PAUSE
+
+var score : int
 
 func set_state(new_state: GlobalVars.State):
 	current_state = new_state
@@ -24,9 +27,10 @@ func set_state(new_state: GlobalVars.State):
 			timer.stop()
 
 func _ready():
-	bg_layer_coords = grid.get_used_cells(1)
-	min_nav_x_y = bg_layer_coords[0]
-	max_nav_x_y = bg_layer_coords[bg_layer_coords.size() - 1]
+	playarea_coords = grid.get_used_cells(1)
+	playarea_coords = playarea_coords.sort()
+	min_nav_x_y = playarea_coords[0]
+	max_nav_x_y = playarea_coords[playarea_coords.size() - 1]
 	
 	timer.timeout.connect(_timer_timeout)
 	snake = snake_head.instantiate()
@@ -38,13 +42,16 @@ func _ready():
 		else:
 			update_snake(s)
 	_new_apple()
+	score = 0
+	score_label.text = str(score)
 	
 func update_snake(grid_coords_pos = snake.grid_coords.size() - 1):
 	var current_segment = snake_segment.instantiate()
 	add_child(current_segment)
 	current_segment.position = grid.map_to_local(snake.grid_coords[grid_coords_pos])
 	snake.body_segments.append(current_segment)
-
+	score += 1
+	score_label.text = str(score)
 
 func _timer_timeout():
 	var segment_next
@@ -68,8 +75,8 @@ func _timer_timeout():
 		timer.start()
 
 func is_in_boundaries(grid_coord):
-	if (min_nav_x_y.x < grid_coord.x) and (max_nav_x_y.x > grid_coord.x):
-		if (min_nav_x_y.y < grid_coord.y) and (max_nav_x_y.y > grid_coord.y):
+	if (min_nav_x_y.x <= grid_coord.x) and (max_nav_x_y.x >= grid_coord.x):
+		if (min_nav_x_y.y <= grid_coord.y) and (max_nav_x_y.y >= grid_coord.y):
 			return true
 	return false
 	
@@ -78,7 +85,7 @@ func _new_apple():
 		apple = apple.instantiate()
 		add_child(apple)
 		apple.spawn.connect(_new_apple)
-	var temp_coords = bg_layer_coords 
+	var temp_coords = playarea_coords 
 	var new_apple_pos : Vector2 = temp_coords[randi() % temp_coords.size()]
 	while snake.grid_coords.has(new_apple_pos):
 		new_apple_pos = temp_coords.pick_random()

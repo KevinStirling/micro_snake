@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b767mxhauo0ur"]
+
+[ext_resource type="FontFile" uid="uid://ccp61bp7gjbcp" path="res://Roboto-Black.ttf" id="1_tsngr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfso"]
+
+[resource]
+default_font = ExtResource("1_tsngr")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_tsngr")
+Label/styles/normal = SubResource("StyleBoxEmpty_cjfso")
+RichTextLabel/font_sizes/bold_font_size = 36
+RichTextLabel/fonts/bold_font = ExtResource("1_tsngr")

@@ -10,7 +10,6 @@ var grid_coords := [Vector2(21, 22), Vector2(22,22), Vector2(23,22), Vector2(24,
 var body_segments: Array
 
 func grow():
-#	var new_seg = grid_coords[grid_coords.size() - 1] + (grid_coords[grid_coords.size() - 2] - grid_coords[grid_coords.size() - 1])
 	var new_seg = grid_coords[grid_coords.size() - 1]
 	grid_coords.append(new_seg)
 	

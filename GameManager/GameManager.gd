@@ -88,8 +88,8 @@ func _timer_timeout():
 		timer.start()
 
 func is_in_boundaries(grid_coord):
-	if (min_nav_x_y.x < grid_coord.x) and (max_nav_x_y.x > grid_coord.x):
-		if (min_nav_x_y.y < grid_coord.y) and (max_nav_x_y.y > grid_coord.y):
+	if (min_nav_x_y.x <= grid_coord.x) and (max_nav_x_y.x >= grid_coord.x):
+		if (min_nav_x_y.y <= grid_coord.y) and (max_nav_x_y.y >= grid_coord.y):
 			return true
 	return false
 	

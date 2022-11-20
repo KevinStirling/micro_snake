@@ -212,10 +212,11 @@ current = true
 zoom = Vector2(1.5, 1.5)
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-offset_left = -144.0
-offset_top = 144.0
-offset_right = -64.0
-offset_bottom = 187.0
+offset_left = -140.0
+offset_top = 157.0
+offset_right = -140.0
+offset_bottom = 217.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_qnd04")
 text = "s"
 fit_content_height = true
@@ -224,21 +225,24 @@ meta_underlined = false
 hint_underlined = false
 
 [node name="StateDisplay" type="RichTextLabel" parent="."]
-offset_left = 252.0
+offset_left = 306.0
 offset_top = 324.0
-offset_right = 472.0
+offset_right = 526.0
 offset_bottom = 364.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_qnd04")
 bbcode_enabled = true
 fit_content_height = true
 
 [node name="ScoreTitle" type="RichTextLabel" parent="."]
-offset_left = -180.0
-offset_top = 108.0
-offset_right = -80.0
-offset_bottom = 151.0
+offset_left = -162.0
+offset_top = 126.0
+offset_right = 38.0
+offset_bottom = 169.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_qnd04")
 text = "Score"
+fit_content_height = true
 scroll_active = false
 meta_underlined = false
 hint_underlined = false

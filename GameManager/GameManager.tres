@@ -17,6 +17,5 @@ Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_tsngr")
 Label/styles/normal = SubResource("StyleBoxEmpty_cjfso")
-RichTextLabel/font_sizes/bold_font_size = 36
-RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/font_sizes/normal_font_size = 50
 RichTextLabel/fonts/normal_font = ExtResource("1_tsngr")
